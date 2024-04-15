@@ -8,6 +8,14 @@
     box-sizing: border-box;
 }
 
+.container {
+    max-width: 1000px;
+}
+
+.container-max {
+    max-width: 1140px;
+}
+
 button:focus,
 input:focus,
 select:focus {
@@ -24,4 +32,12 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+.credits-box:hover {
+    background-color: #ef233c;
+}
+
+.actor-bio-more:hover {
+    color: #ef233c;
 }
