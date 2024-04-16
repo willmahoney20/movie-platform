@@ -18,8 +18,6 @@ export default () => {
     const getMovie = async () => {
         const res = await axios.get('/api/movies/' + params.movie_id)
 
-        console.log(res.data.crew)
-
         setData(res.data)
     }
 
@@ -113,6 +111,7 @@ export default () => {
                             />
                         </div>}
 
+                        {(data.cast && data.cast.length > 0) &&
                         <div className="flex flex-col mb-8">
                             <h4 className="text-white font-medium mb-2">Cast</h4>
                             <div className="flex flex-row flex-wrap">
@@ -124,8 +123,9 @@ export default () => {
                                 </Link>
                                 ))}
                             </div>
-                        </div>
+                        </div>}
 
+                        {(data.crew && data.crew.length > 0) &&
                         <div className="flex flex-col mb-8">
                             <h4 className="text-white font-medium mb-2">Crew</h4>
                             <div className="flex flex-row flex-wrap">
@@ -137,7 +137,7 @@ export default () => {
                                 </Link>
                                 ))}
                             </div>
-                        </div>
+                        </div>}
 
                         {(data.reviews && data.reviews.length > 0) &&
                         <div className="flex flex-col">
