@@ -39,12 +39,17 @@ export default ({ cards, width, cardSize, movies, showInfo }: { cards: number, w
                     {movies.map(movie => (
                         <Link href={`/movies/${movie.id}`} key={movie.id}>
                             <div className="flex flex-col mr-2" style={{minWidth: size + 'px'}}>
-                                <Image
-                                    src={"https://image.tmdb.org/t/p/w200" + movie.poster_path}
-                                    alt={movie.title + " Poster"}
-                                    width={size}
-                                    height={size * 1.5}
-                                />
+                                <div className="cursor-pointer" style={{height: size * 1.5 + 'px', width: size + 'px'}}>
+                                    {movie.poster_path ?
+                                    <img
+                                        src={"https://image.tmdb.org/t/p/w200" + movie.poster_path}
+                                        alt={movie.title + " Poster"}
+                                        style={{borderRadius: '3px', minHeight: '100%', maxHeight: '100%'}}
+                                    /> :
+                                    <div className="flex items-center justify-center min-h-full min-w-full bg-zinc-800 p-2 shadow-inner shadow-zinc-600" style={{borderRadius: '3px'}}>
+                                        <h3 className="text-white text-sm font-medium opacity-85 text-center">{movie.title}</h3>
+                                    </div>}
+                                </div>
                                 {showInfo &&
                                 <div className="flex flex-col mt-2">
                                     <h5 className="text-white text-xs font-bold mb-1">
