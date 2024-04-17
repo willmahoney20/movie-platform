@@ -48,7 +48,16 @@ export const GET = async (req: any, { params }: any) => {
         })
 
         let cast_included: string[] = []
-        let crew_included: string[] = []
+
+        let crew: any = {}
+        credits.data.crew.forEach((x: any) => {
+            const keys = Object.keys(crew)
+            if(keys.includes(x.job)){
+                crew[x.job].push(x)
+            } else {
+                crew[x.job] = [x]
+            }
+        })
 
         return NextResponse.json({
             ...movie.data,
@@ -62,14 +71,7 @@ export const GET = async (req: any, { params }: any) => {
 
                 return false
             }),
-            crew: credits.data.crew.filter(x => {
-                if(!crew_included.includes(x.name)){
-                    crew_included.push(x.name)
-                    return true
-                }
-
-                return false
-            })
+            crew
         })
     } catch (error) {
         return NextResponse.json(error)

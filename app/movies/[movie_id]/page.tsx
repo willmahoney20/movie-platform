@@ -125,18 +125,25 @@ export default () => {
                             </div>
                         </div>}
 
-                        {(data.crew && data.crew.length > 0) &&
+                        {(Object.keys(data.crew).length > 0) &&
                         <div className="flex flex-col mb-8">
                             <h4 className="text-white font-medium mb-2">Crew</h4>
-                            <div className="flex flex-row flex-wrap">
-                                {data.crew.map(member => (
-                                <Link href={'/crew/' + member.id} className="mr-2 mb-2">
-                                    <div className="bg-zinc-800 rounded p-1 credits-box">
-                                        <p className="text-zinc-300 text-xs font-medium m-0">{member.name}</p>
-                                    </div>
-                                </Link>
-                                ))}
+                            {Object.keys(data.crew).map(job => (
+                            <div className="flex flex-row mb-2">
+                                <div className="w-64 min-w-64 overflow-hidden mr-4">
+                                    <h6 className="text-white text-xs font-medium opacity-70 py-1 whitespace-nowrap">{job} ....................................................................................</h6>
+                                </div>
+                                <div className="flex flex-row flex-wrap">
+                                    {data.crew[job].map(member => (
+                                    <Link href={'/crew/' + member.id} className="mr-2 mb-2">
+                                        <div className="bg-zinc-800 rounded p-1 credits-box">
+                                            <p className="text-zinc-300 text-xs font-medium m-0">{member.name}</p>
+                                        </div>
+                                    </Link>
+                                    ))}
+                                </div>
                             </div>
+                            ))}
                         </div>}
 
                         {(data.reviews && data.reviews.length > 0) &&

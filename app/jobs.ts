@@ -2,36 +2,61 @@ export default {
     'actor': {
         path: 'actor',
         addon: 'STARRING',
-        department: 'Acting'
+        departments: ['Acting']
     },
     'director': {
         path: 'director',
         addon: 'DIRECTED BY',
-        department: 'Directing'
+        departments: ['Directing']
     },
     'writer': {
         path: 'writer',
         addon: 'WRITTEN BY',
-        department: 'Writing'
+        departments: ['Writing']
     },
     'editor': {
         path: 'editor',
         addon: 'EDITED BY',
-        department: 'Editor'
+        departments: ['Editor']
     },
     'screenplay': {
         path: 'screenplay',
-        addon: 'S BY',
-        department: 'Screenplay'
+        addon: 'WITH SCREENPLAY BY',
+        departments: ['Screenplay']
     },
     'producer': {
         path: 'producer',
         addon: 'PRODUCED BY',
-        department: 'Producer'
+        departments: ['Producer']
     },
-    'executive producer': {
-        path: 'executive-producer',
-        addon: 'EXECUTIVELY PRODUCED BY',
-        department: 'Executive Producer'
+    'assistant director': {
+        path: 'assistant-director',
+        addon: 'ASSISTED DIRECTED BY',
+        departments: ['First Assistant Director', 'Second Assistant Director', 'Third Assistant Director']
+    },
+    'stunts': {
+        path: 'stunts',
+        addon: 'WITH STUNTS BY',
+        departments: ['Stunts', 'Stunt Coordinator', 'Stunt Double', 'Stunt Driver', 'Utility Stunts']
+    },
+    'camera operator': {
+        path: 'camera-operator',
+        addon: 'WITH CAMERAS OPERATED BY',
+        departments: ['Key Grip', 'Grip', 'Second Assistant "A" Camera', 'Second Assistant "B" Second Assistant "C" Camera', 'Second Assistant "D" Camera', 'Second Assistant Camera']
+    },
+    'costumes': {
+        path: 'costumes',
+        addon: 'WITH COSTUMES BY',
+        departments: ['Ager/Dyer', 'Costume Coordinator', 'Costume Set Supervisor', 'Costumer', 'Seamstress', 'Truck Supervisor']
+    },
+    'hair': {
+        path: 'hair',
+        addon: 'WITH HAIR BY',
+        departments: ['Hairstylist', 'First Assistant Hairstylist', 'Assistant Hairstylist', 'Hair Department Head']
+    },
+    'makeup': {
+        path: 'makeup',
+        addon: 'WITH MAKEUP BY',
+        departments: ['Makeup Artist', 'Key Makeup Artist', 'Prosthetic Makeup Artist', 'Assistant Makeup Artist', 'First Assistant Makeup Artist', 'Prosthetic Designer', 'Special Effects Makeup Artist']
     },
 }

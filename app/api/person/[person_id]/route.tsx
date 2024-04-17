@@ -25,7 +25,8 @@ export const GET = async (req: any, { params }: any) => {
             }
         })
 
-        let work = { 'actor': credits.data.cast }
+        let work = {}
+        if(credits.data.cast && credits.data.cast.length > 0) work['actor'] = credits.data.cast
 
         credits.data.crew.forEach(movie => {
             if(Object.keys(work).includes(movie.job.toLowerCase())){

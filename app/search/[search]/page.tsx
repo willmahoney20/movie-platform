@@ -95,7 +95,6 @@ export default () => {
                 </div>
 
                 <div className="flex flex-row">
-
                     {pageNumbers[0] !== 1 &&
                     <>
                     <div className="flex items-center justify-center p-2 cursor-pointer hover:bg-zinc-700" onClick={() => updatePage(1)}>

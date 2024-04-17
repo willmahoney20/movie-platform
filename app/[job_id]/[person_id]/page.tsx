@@ -21,6 +21,20 @@ export default () => {
         
         let job = 'actor'
         if(typeof params.job_id === 'string') job = params.job_id
+        
+        if(!res.data.credits[job] || res.data.credits[job].length < 1){
+            let keys = Object.keys(res.data.credits)
+            for(let i = 0; i < keys.length; i++){
+                if(res.data.credits[keys[i]] && res.data.credits[keys[i]].length > 0){
+                    job = keys[i]
+                    break
+                }
+            }
+        }
+        
+        const newURL = '/' + job + '/' + params.person_id
+        window.history.replaceState({}, '', newURL)
+
         setJob(job)
 
         setCredits(res.data.credits)
