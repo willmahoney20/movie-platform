@@ -131,7 +131,7 @@ export default () => {
                             {Object.keys(data.crew).map(job => (
                             <div className="flex flex-row mb-2">
                                 <div className="w-64 min-w-64 overflow-hidden mr-4">
-                                    <h6 className="text-white text-xs font-medium opacity-70 py-1 whitespace-nowrap">{job} ....................................................................................</h6>
+                                    <h6 className="text-white text-xs font-medium opacity-70 py-1 whitespace-nowrap">{job.toUpperCase()} ....................................................................................</h6>
                                 </div>
                                 <div className="flex flex-row flex-wrap">
                                     {data.crew[job].map(member => (

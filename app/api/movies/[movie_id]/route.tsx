@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import axios from 'axios'
+import jobs from '@/app/jobs'
 
 export const GET = async (req: any, { params }: any) => {
     try {        
@@ -50,22 +51,27 @@ export const GET = async (req: any, { params }: any) => {
         let cast_included: string[] = []
 
         let crew: any = {}
-        credits.data.crew.forEach((x: any) => {
-            const keys = Object.keys(crew)
-            if(keys.includes(x.job)){
-                crew[x.job].push(x)
-            } else {
-                crew[x.job] = [x]
-            }
+        const job_keys = Object.keys(jobs)
+        credits.data.crew.forEach((person: any) => {
+            job_keys.forEach((job: string) => {
+                if(jobs[job].departments.includes(person.job)){
+                    const keys = Object.keys(crew)
+                    if(keys.includes(job)){
+                        crew[job].push(person)
+                    } else {
+                        crew[job] = [person]
+                    }
+                }
+            })
         })
 
         return NextResponse.json({
             ...movie.data,
             reviews: reviews.data.results,
             recommendations: recommendations.data.results,
-            cast: credits.data.cast.filter(x => {
-                if(!cast_included.includes(x.name)){
-                    cast_included.push(x.name)
+            cast: credits.data.cast.filter(person => {
+                if(!cast_included.includes(person.name)){
+                    cast_included.push(person.name)
                     return true
                 }
 

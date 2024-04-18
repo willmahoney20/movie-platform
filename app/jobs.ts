@@ -7,22 +7,17 @@ export default {
     'director': {
         path: 'director',
         addon: 'DIRECTED BY',
-        departments: ['Directing']
+        departments: ['Director']
     },
     'writer': {
         path: 'writer',
         addon: 'WRITTEN BY',
-        departments: ['Writing']
+        departments: ['Writing', 'Screenplay']
     },
     'editor': {
         path: 'editor',
         addon: 'EDITED BY',
         departments: ['Editor']
-    },
-    'screenplay': {
-        path: 'screenplay',
-        addon: 'WITH SCREENPLAY BY',
-        departments: ['Screenplay']
     },
     'producer': {
         path: 'producer',
