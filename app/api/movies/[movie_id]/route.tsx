@@ -51,6 +51,7 @@ export const GET = async (req: any, { params }: any) => {
         let cast_included: string[] = []
 
         let crew: any = {}
+        let sorted_crew: any = {}
         const job_keys = Object.keys(jobs)
         credits.data.crew.forEach((person: any) => {
             job_keys.forEach((job: string) => {
@@ -65,6 +66,11 @@ export const GET = async (req: any, { params }: any) => {
             })
         })
 
+        // sort the items into order
+        job_keys.forEach(key => {
+            if(crew[key]) sorted_crew[key] = crew[key]
+        })
+
         return NextResponse.json({
             ...movie.data,
             reviews: reviews.data.results,
@@ -77,7 +83,7 @@ export const GET = async (req: any, { params }: any) => {
 
                 return false
             }),
-            crew
+            crew: { ...sorted_crew }
         })
     } catch (error) {
         return NextResponse.json(error)

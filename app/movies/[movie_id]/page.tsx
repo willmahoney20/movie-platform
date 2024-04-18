@@ -7,6 +7,7 @@ import Image from "next/image"
 import { FaCircle, FaStar } from "react-icons/fa"
 import Reel from "@/components/Reel"
 import Link from "next/link"
+import jobs from "@/app/jobs"
 
 export default () => {
 	const params = useParams()
@@ -135,7 +136,7 @@ export default () => {
                                 </div>
                                 <div className="flex flex-row flex-wrap">
                                     {data.crew[job].map(member => (
-                                    <Link href={'/crew/' + member.id} className="mr-2 mb-2">
+                                    <Link href={'/' + jobs[job].path + '/' + member.id} className="mr-2 mb-2">
                                         <div className="bg-zinc-800 rounded p-1 credits-box">
                                             <p className="text-zinc-300 text-xs font-medium m-0">{member.name}</p>
                                         </div>
